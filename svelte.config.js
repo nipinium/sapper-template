@@ -18,7 +18,7 @@ module.exports = {
                 includePaths: [
                     path.dirname(filename),
                     path.resolve(__dirname, 'node_modules'),
-                    path.resolve(__dirname, 'css'),
+                    path.resolve(__dirname, 'src/styles'),
                 ],
                 outFile: filename + '.css',
             }
