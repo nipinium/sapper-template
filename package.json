@@ -26,5 +26,9 @@
         "svelte": "^3.0.0",
         "svelte-loader-hot": "^0.1.1",
         "webpack": "^4.7.0"
-    }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
 }
