@@ -2539,6 +2539,10 @@ mixin-deep@^1.2.0:
   dependencies:
     minimist "0.0.8"
 
+"mould@https://github.com/nipinium/mould":
+  version "0.0.1"
+  resolved "https://github.com/nipinium/mould#004f3b856f92116c3c7bef34e6931de6a110b8c2"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
