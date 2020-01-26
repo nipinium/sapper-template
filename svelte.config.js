@@ -9,7 +9,7 @@ module.exports = {
       const { type, lang } = attributes
       if (type !== 'text/scss' && lang !== 'scss') return
 
-      const prepend_content = '@import "mould/css/essence";\n'
+      const prepend_content = '@import "~mould/css/essence";\n'
       content = prepend_content + content
 
       const options = {
