@@ -24,7 +24,11 @@ const { preprocess } = require('./svelte.config')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')({ preset: 'default' })
 const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./src/**/*.html', './src/**/*.svelte'],
+  content: [
+    './src/**/*.html',
+    './src/**/*.svelte',
+    './__sapper__/build/**/*.html',
+  ],
   keyframes: true,
   whitelistPatterns: [/svelte-/],
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
@@ -90,8 +94,8 @@ module.exports = {
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
       new MiniCssExtractPlugin({
-        // filename: '[name].css',
-        // chunkFilename: '[name].[id].css',
+        filename: '[hash]/[name].css',
+        chunkFilename: '[hash]/[name].[id].css',
         ignoreOrder: false, // Enable to remove warnings about conflicting order
       }),
     ].filter(Boolean),
