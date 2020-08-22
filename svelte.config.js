@@ -1,15 +1,17 @@
 const path = require('path')
 const sass = require('node-sass')
+const prep = require('svelte-preprocess')
 
 module.exports = {
   preprocess: {
+    ...prep({ typescript: { transpileOnly: true } }),
     style: async ({ content, attributes, filename }) => {
       if (content.length === 0) return { code: content }
 
       const { type, lang } = attributes
       if (type !== 'text/scss' && lang !== 'scss') return
 
-      const prepend_content = '@import "~mould/css/essence";\n'
+      const prepend_content = '@import "@nipin/mould/css/essence";\n'
       content = prepend_content + content
 
       const options = {

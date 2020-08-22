@@ -1,3 +1,8 @@
+<script lang="ts">
+  import { site } from '../stores'
+  let title: string = `${$site} project template`
+</script>
+
 <style lang="scss">
   h1,
   figure,
@@ -35,7 +40,7 @@
 </style>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>{title}</title>
 </svelte:head>
 
 <h1>Great success!</h1>

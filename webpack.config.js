@@ -14,7 +14,7 @@ const alias = {
   $src: path.resolve(__dirname, 'src'),
 }
 
-const extensions = ['.mjs', '.js', '.json', '.svelte', '.html']
+const extensions = ['.ts', '.mjs', '.js', '.json', '.svelte', '.html']
 const mainFields = ['svelte', 'module', 'browser', 'main']
 
 const { preprocess } = require('./svelte.config')
@@ -31,7 +31,7 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   ],
   keyframes: true,
   whitelistPatterns: [/svelte-/],
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+  defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 })
 
 // exports
