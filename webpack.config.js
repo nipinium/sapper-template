@@ -1,15 +1,17 @@
 const webpack = require('webpack')
+const WebpackModules = require('webpack-modules')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 const path = require('path')
 const config = require('sapper/config/webpack.js')
 const pkg = require('./package.json')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 
 const alias = {
   svelte: path.resolve('node_modules', 'svelte'),
-  $mould: path.resolve('node_modules', '~mould', 'lib'),
+  $mould: path.resolve('node_modules', '@nipin', 'mould', 'lib'),
   $com: path.resolve(__dirname, 'src', 'components'),
   $src: path.resolve(__dirname, 'src'),
 }
@@ -49,10 +51,10 @@ module.exports = {
             loader: 'svelte-loader-hot',
             options: {
               dev,
+              emitCss: !dev,
               preprocess,
               hydratable: true,
               hotReload: true,
-              emitCss: !dev,
               hotOptions: {
                 noPreserveState: false, // Default: false
                 optimistic: true, // Default: false
@@ -117,6 +119,7 @@ module.exports = {
             options: {
               css: false,
               generate: 'ssr',
+              hydratable: true,
               dev,
               preprocess,
             },
@@ -125,14 +128,13 @@ module.exports = {
       ],
     },
     mode: process.env.NODE_ENV,
-    performance: {
-      hints: false, // it doesn't matter if server.js is large
-    },
+    plugins: [new WebpackModules()],
+    performance: { hints: false },
   },
 
   serviceworker: {
     entry: config.serviceworker.entry(),
     output: config.serviceworker.output(),
-    mode: process.env.NODE_ENV,
+    mode,
   },
 }

@@ -25,12 +25,14 @@
     "postcss-loader": "^3.0.0",
     "sapper": "^0.28.0",
     "sass-loader": "^9.0.3",
-    "svelte": "^3.24.1",
+    "svelte": "^3.23.0",
     "svelte-check": "^1.0.21",
     "svelte-loader-hot": "^0.3.0",
     "svelte-preprocess": "^4.1.1",
+    "tslib": "^2.0.1",
     "typescript": "^4.0.2",
-    "webpack": "^4.44.1"
+    "webpack": "^4.44.1",
+    "webpack-modules": "^1.0.0"
   },
   "browserslist": [
     "> 1%",
